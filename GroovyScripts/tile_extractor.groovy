@@ -1,3 +1,14 @@
+
+
+// **TILE_EXTRACTOR**
+
+// Generate tiles of the WSI raw files in .jpg format and of the annotations (white background) in .png format 
+
+// To use this script you must have a WSI file open with annotations
+// One must set the output path here "def pathOutput = buildFilePath" and add the corresponding labels names on the "add.label" lines
+// One can define the downsampling of the tiles with "double downsample =" and also the size of the tiles with ".tileSize() " 
+
+
 import qupath.lib.images.servers.LabeledImageServer
 
 def imageData = getCurrentImageData()
