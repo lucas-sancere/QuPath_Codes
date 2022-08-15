@@ -32,12 +32,12 @@ def labelServer = new LabeledImageServer.Builder(imageData)
     .backgroundLabel(0, ColorTools.BLACK) // Specify background label (usually 0 or 255)
     .downsample(downsample)    // Choose server resolution; this should match the resolution at which tiles are exported
     .addLabel('Tumor', 255, ColorTools.WHITE )      // Choose output labels (the order matters!)
-    // .addLabel('Stroma', 2)
+    .addLabel('Stroma', 255, ColorTools.WHITE )
     // .addLabel('Connective', 3)
     // .addLabel('Dead', 4)
     // .addLabel('Non-Neoplastic Epithelial', 5)    
-    .lineThickness(2)          // Optionally export annotation boundaries with another label
-    .setBoundaryLabel('Boundary*', 255, ColorTools.WHITE) // Define annotation boundary label
+    //.lineThickness(2)          // Optionally export annotation boundaries with another label
+    //.setBoundaryLabel('Boundary*', 255, ColorTools.WHITE) // Define annotation boundary label
     .multichannelOutput(false) // If true, each label refers to the channel of a multichannel binary image (required for multiclass probability)
     .build()
 
