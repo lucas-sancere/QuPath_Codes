@@ -54,6 +54,7 @@ void createTileCache() {
 
 // setting colors
 bg = getPathClass('Background')
+bg.setColor(Color.RED.getRGB())
 np = getPathClass('Neoplastic')
 np.setColor(Color.RED.getRGB())
 inf = getPathClass('Inflammatory')
