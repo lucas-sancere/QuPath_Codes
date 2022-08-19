@@ -2,7 +2,7 @@
 
 // **EXPORT_BACKGROUND_ANNOTATIONS**
 
-// // TO COMPLETE
+// Export the selecyed ares as png file keeping only the background and not the annotations.
 
 import qupath.lib.images.servers.LabeledImageServer
 
