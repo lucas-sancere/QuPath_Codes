@@ -11,17 +11,21 @@ import qupath.lib.images.servers.LabeledImageServer
 
 def imageData = getCurrentImageData()
 
-// Define output path (relative to project)
+// Define output path 
 def name = GeneralTools.getNameWithoutExtension(imageData.getServer().getMetadata().getName())
+
+//  -- > If output path is ABSOLUTE
 def pathOutput = buildFilePath('/home/lsancere/These/CMMC/Local_DATA/SCC/ProcessedData/ExportMasks/', name)
+
+//  -- > If Output path is linked to Project dir (RELATIVE)
+// def pathOutput = buildFilePath(PROJECT_BASE_DIR, 'ExportMasks', name) 
+
 mkdirs(pathOutput)
 
 // Define output resolution
-
 // double requestedPixelSize = 1.0
 
 // Convert to downsample
-
 // double downsample = requestedPixelSize / imageData.getServer().getPixelCalibration().getAveragedPixelSize()
 double downsample = 32.0 //To follow Whole-SlideIPP Pipeline
 

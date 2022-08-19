@@ -6,6 +6,29 @@
 // Write the region of the image corresponding to the currently-selected object
 
 
+
+import qupath.lib.images.servers.LabeledImageServer
+
+def imageData = getCurrentImageData()
+
+
+// Define output path 
+def name = GeneralTools.getNameWithoutExtension(imageData.getServer().getMetadata().getName())
+
+//  -- > If output path is ABSOLUTE
+def pathOutput = buildFilePath('/home/lsancere/These/CMMC/Local_DATA/HoverNet_DATA/TrainingData/Carina/ExportSelected/region.tif')
+
+//  -- > If Output path is linked to Project dir (RELATIVE)
+// def pathOutput = buildFilePath(PROJECT_BASE_DIR, 'ExportSelected', name + '.tif') 
+
+mkdirs(pathOutput)
+print(pathOutput)
+
+
+def server = getCurrentServer()
+
 def roi = getSelectedROI()
 def requestROI = RegionRequest.createInstance(server.getPath(), 1, roi)
-writeImageRegion(server, requestROI, '/home/lsancere/These/CMMC/Local_DATA/SCC/ProcessedData/ExportSelected/region.tif')
+writeImageRegion(server, requestROI, pathOutput)
+
+print'Done'

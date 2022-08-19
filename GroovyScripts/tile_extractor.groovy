@@ -13,11 +13,16 @@ import qupath.lib.images.servers.LabeledImageServer
 
 def imageData = getCurrentImageData()
 
-// Define output path (relative to project)
+// Define output path 
 def name = GeneralTools.getNameWithoutExtension(imageData.getServer().getMetadata().getName())
-def pathOutput = buildFilePath("/home/lsancere/These/CMMC/Local_DATA/SCC/ProcessedData/LabelExctracted", name)
-mkdirs(pathOutput)
 
+//  -- > If output path is ABSOLUTE
+// def pathOutput = buildFilePath("/home/lsancere/These/CMMC/Local_DATA/SCC/ProcessedData/LabelExctracted", name)
+
+//  -- > If Output path is linked to Project dir (RELATIVE)
+def pathOutput = buildFilePath(PROJECT_BASE_DIR, 'LabelExctracted', name) 
+
+mkdirs(pathOutput)
 
 // DOWNSAMPLE
 // a) You can calculate the downsample factor based on requestedPixelSize
@@ -33,8 +38,8 @@ double downsample = 1.0 // original mag = 40 ; downsampled mag = 40/8 = 5
 def labelServer = new LabeledImageServer.Builder(imageData)
     .backgroundLabel(0, ColorTools.WHITE) // Specify background label (usually 0 or 255)
 //     .downsample(downsample)    // Choose server resolution; this should match the resolution at which tiles are exported
-    .addLabel('Connective', 1)      // Choose output labels (the order matters!)
-    .addLabel('Neoplastic', 2)     // "Stroma" here means non-tumor
+    .addLabel('Stroma', 1)      // Choose output labels (the order matters!)
+    .addLabel('Tumor', 2)     // "Stroma" here means non-tumor
     .addLabel('Dead',3)
     .addLabel('Inflammatory',4)
     .multichannelOutput(false)  // If true, each label is a different channel (required for multiclass probability)

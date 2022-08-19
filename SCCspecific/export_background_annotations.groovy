@@ -1,12 +1,8 @@
 
 
-// **EXPORT_INDIV_ANNOTATIONS**
+// **EXPORT_BACKGROUND_ANNOTATIONS**
 
-// The following script creates a LabeledImageServer, and loops through all annotations in an image with the 
-// choosen clasifications – exporting a labeled image for the bounding box of each annotation
-// Coming from QuPath documentation
-
-// One must set the output path here "def pathOutput = buildFilePath" and add the corresponding labels names on the "add.label" lines
+// // TO COMPLETE
 
 import qupath.lib.images.servers.LabeledImageServer
 
@@ -19,7 +15,7 @@ def name = GeneralTools.getNameWithoutExtension(imageData.getServer().getMetadat
 // def pathOutput = buildFilePath('/home/lsancere/These/CMMC/Local_DATA/SCC/ProcessedData/ExportSingleAnnotations/', name)
 
 //  -- > If Output path is linked to Project dir (RELATIVE)
-def pathOutput = buildFilePath(PROJECT_BASE_DIR, 'ExportSingleAnnotations', name) 
+def pathOutput = buildFilePath(PROJECT_BASE_DIR, 'ExportRawBackground', name) 
 
 mkdirs(pathOutput)
 
@@ -45,6 +41,7 @@ def labelServer = new LabeledImageServer.Builder(imageData)
     .multichannelOutput(false) // If true, each label refers to the channel of a multichannel binary image (required for multiclass probability)
     .build()
 
+def server = getCurrentServer()
 
 // Export each region
 int i = 0
@@ -53,7 +50,7 @@ for (annotation in getAnnotationObjects()) {
         labelServer.getPath(), downsample, annotation.getROI())
     i++
     def outputPath = buildFilePath(pathOutput, 'Region ' + i + '.png')
-    writeImageRegion(labelServer, region, outputPath)
+    writeImageRegion(server, region, outputPath)
 }
 
 
