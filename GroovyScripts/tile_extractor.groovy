@@ -2,7 +2,7 @@
 
 // **TILE_EXTRACTOR**
 
-// Generate tiles of the WSI raw files in .jpg format and of the annotations (white background) in .png format 
+// Generate tiles of the WSI raw files in .jpg format and of the annotations (white or black background to choose) in .png format 
 
 // To use this script you must have a WSI file open with annotations
 // One must set the output path here "def pathOutput = buildFilePath" and add the corresponding labels names on the "add.label" lines
@@ -36,20 +36,27 @@ double downsample = 1.0 // original mag = 40 ; downsampled mag = 40/8 = 5
 
 // Create an ImageServer where the pixels are derived from annotations
 def labelServer = new LabeledImageServer.Builder(imageData)
-    .backgroundLabel(0, ColorTools.WHITE) // Specify background label (usually 0 or 255)
+    .backgroundLabel(0, ColorTools.BLACK) // Specify background label (usually 0 or 255)
 //     .downsample(downsample)    // Choose server resolution; this should match the resolution at which tiles are exported
-    .addLabel('Stroma', 1)      // Choose output labels (the order matters!)
-    .addLabel('Tumor', 2)     // "Stroma" here means non-tumor
-    .addLabel('Dead',3)
-    .addLabel('Inflammatory',4)
+//    .addLabel('Background', 1)      // Choose output labels (the order matters!)
+//    .addLabel('Neoplastic',2)
+//    .addLabel('Connective', 3)     // "Stroma" here means non-tumor
+//    .addLabel('Dead',4)
+//    .addLabel('Inflammatory',5)
+    .addLabel('Granulocyte', 1) 
+    .addLabel('Immunce cells', 2) 
+    .addLabel('Plasma Cells', 3) 
+    .addLabel('Stroma', 4) 
+    .addLabel('Tumor', 5) 
+    
     .multichannelOutput(false)  // If true, each label is a different channel (required for multiclass probability)
     .build()
 
 // Create an exporter that requests corresponding tiles from the original & labeled image servers
 new TileExporter(imageData)
-//    .downsample(downsample)     // Define export resolution
+    .downsample(downsample)     // Define export resolution
     .imageExtension('.jpg')     // Define file extension for original pixels (often .tif, .jpg, '.png' or '.ome.tif')
-    .tileSize(10000)              // Define size of each tile, in pixels
+    .tileSize(35808,64672)              // Define size of each tile, in pixels
     .labeledServer(labelServer) // Define the labeled image server to use (i.e. the one we just built)
     .annotatedTilesOnly(true)  // If true, only export tiles if there is a (labeled) annotation present
     .overlap(0)                // Define overlap, in pixel units at the export resolution

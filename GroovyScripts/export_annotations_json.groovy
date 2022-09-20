@@ -13,15 +13,15 @@ def imageData = getCurrentImageData()
 def name = GeneralTools.getNameWithoutExtension(imageData.getServer().getMetadata().getName())
 
 def annotations = getAnnotationObjects()
-def Outputpath = buildFilePath('/home/lsancere/These/CMMC/Ada_Mount/shared/scc-patch-processing/patches/zoom-level-0/content-20/Patches1024-1024/hovernet_prediction/allGTjsons',  name  +'.json' )
+def Outputpath = buildFilePath('/home/lsancere/These/CMMC/Local_DATA/HoverNet_DATA/TrainingData/Carina/Exportedjson/',  name  +'.json' )
 
 
-// The same method without the 'FEATURE_COLLECTION' parameter outputs a simple JSON object/array
-exportObjectsToGeoJson(annotations, Outputpath)
+// TO create GeoJson without the 'FEATURE_COLLECTION' parameter to outputs a simple JSON object/array
+// exportObjectsToGeoJson(annotations, Outputpath)
 
 // TO create GeoJson
 // 'FEATURE_COLLECTION' is standard GeoJSON format for multiple objects
-// exportObjectsToGeoJson(annotations, path, "FEATURE_COLLECTION")
+exportObjectsToGeoJson(annotations, Outputpath, "FEATURE_COLLECTION")
 
 
 print 'Done!'
