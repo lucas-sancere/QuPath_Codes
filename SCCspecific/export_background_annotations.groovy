@@ -36,6 +36,7 @@ def labelServer = new LabeledImageServer.Builder(imageData)
     .addLabel('Granulocytes', 3)
     .addLabel('Plasma Cells', 4)
     .addLabel('Immune Cells', 5)    
+    .addLabel('Cells', 6)
     //.lineThickness(2)          // Optionally export annotation boundaries with another label
     //.setBoundaryLabel('Boundary*', 255, ColorTools.WHITE) // Define annotation boundary label
     .multichannelOutput(false) // If true, each label refers to the channel of a multichannel binary image (required for multiclass probability)
@@ -49,7 +50,7 @@ for (annotation in getAnnotationObjects()) {
     def region = RegionRequest.createInstance(
         labelServer.getPath(), downsample, annotation.getROI())
     i++
-    def outputPath = buildFilePath(pathOutput, 'Region ' + i + '.png')
+    def outputPath = buildFilePath(pathOutput, name + '_Region' + i + '.png')
     writeImageRegion(server, region, outputPath)
 }
 
