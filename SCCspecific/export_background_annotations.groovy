@@ -35,7 +35,7 @@ def labelServer = new LabeledImageServer.Builder(imageData)
     .addLabel('Stroma', 2)
     .addLabel('Granulocytes', 3)
     .addLabel('Plasma Cells', 4)
-    .addLabel('Immune Cells', 5)    
+    .addLabel('Immune cells', 5)    
     .addLabel('Cells', 6)
     //.lineThickness(2)          // Optionally export annotation boundaries with another label
     //.setBoundaryLabel('Boundary*', 255, ColorTools.WHITE) // Define annotation boundary label
