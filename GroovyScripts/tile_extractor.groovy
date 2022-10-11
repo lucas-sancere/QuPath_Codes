@@ -60,7 +60,7 @@ new TileExporter(imageData)
     .downsample(downsample)     // Define export resolution
     .imageExtension('.jpg')     // Define file extension for original pixels (often .tif, .jpg, '.png' or '.ome.tif')
     .tileSize(39360,19584)   // Define size of each tile, in pixels 
-//    .tileSize(server.Width,server.Height)   //When generating only one annotation image  
+//    .tileSize(server.Width, server.Height)   //When generating only one annotation image  
     .labeledServer(labelServer) // Define the labeled image server to use (i.e. the one we just built)
     .annotatedTilesOnly(true)  // If true, only export tiles if there is a (labeled) annotation present
     .overlap(0)                // Define overlap, in pixel units at the export resolution

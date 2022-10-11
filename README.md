@@ -16,3 +16,7 @@ All the github repositories linked to QuPath project can be found [here](https:/
 The documentation can be find [here](https://qupath.readthedocs.io/en/latest/index.html). 
 
 Most of the needed scripts and explanations for my projects are in the [Advanced Section](https://qupath.readthedocs.io/en/latest/docs/advanced/index.html) and in the [Exporting Annotations](https://qupath.readthedocs.io/en/latest/docs/advanced/exporting_annotations.html) subsection.
+
+Also some interesting websites for QuPath codes:
+
+- https://www.imagescientist.com/

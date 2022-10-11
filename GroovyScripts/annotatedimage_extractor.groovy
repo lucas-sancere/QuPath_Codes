@@ -3,7 +3,7 @@
 // **ANNOTATEDIMAGE_EXTRACTOR**
 
 // Generate annotations of a whole image (white or black background to choose) in .ome.tif format. The input image size
-// Should be not so high. 
+// Should be not so high.
 
 // To use this script you must have a WSI file open with annotations
 // One must set the output path here "def pathOutput = buildFilePath" and add the corresponding labels names on the "add.label" lines
