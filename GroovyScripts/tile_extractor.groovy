@@ -49,8 +49,8 @@ def labelServer = new LabeledImageServer.Builder(imageData)
     .addLabel('Granulocyte', 1) 
     .addLabel('Immune cells', 2) 
     .addLabel('Plasma Cells', 3) 
-    .addLabel('Stroma', 4) 
-    .addLabel('Tumor', 5) 
+    .addLabel('Tumor', 4) 
+    .addLabel('Stroma', 5) 
     
     .multichannelOutput(false)  // If true, each label is a different channel (required for multiclass probability)
     .build()
@@ -59,7 +59,7 @@ def labelServer = new LabeledImageServer.Builder(imageData)
 new TileExporter(imageData)
     .downsample(downsample)     // Define export resolution
     .imageExtension('.jpg')     // Define file extension for original pixels (often .tif, .jpg, '.png' or '.ome.tif')
-    .tileSize(39360,19584)   // Define size of each tile, in pixels 
+    .tileSize(39360, 19584)   // Define size of each tile, in pixels 
 //    .tileSize(server.Width, server.Height)   //When generating only one annotation image  
     .labeledServer(labelServer) // Define the labeled image server to use (i.e. the one we just built)
     .annotatedTilesOnly(true)  // If true, only export tiles if there is a (labeled) annotation present
