@@ -1,6 +1,6 @@
 
 
-// **ANNOTATEDIMAGE_EXTRACTOR**
+// **EXPORT_FULL_ANNOTATED_IMAGE**
 
 // Generate annotations of a whole image (white or black background to choose) in .ome.tif format. The input image size
 // Should be not so high.
@@ -40,7 +40,7 @@ double downsample = 1.0 // original mag = 40 ; downsampled mag = 40/8 = 5
 
 // Create an ImageServer where the pixels are derived from annotations
 def labelServer = new LabeledImageServer.Builder(imageData)
-  .backgroundLabel(0, ColorTools.WHITE) // Specify background label (usually 0 or 255)
+  .backgroundLabel(0, ColorTools.BLACK) // Specify background label (usually 0 or 255)
 //  .downsample(downsample)    // Choose server resolution; this should match the resolution at which tiles are exported
   .addLabel('Granulocyte', 1)
   .addLabel('Immune cells', 2)

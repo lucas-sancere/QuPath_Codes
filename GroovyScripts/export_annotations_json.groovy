@@ -2,7 +2,7 @@
 
 // **EXPORT_ANNOTATION_JSON**
 
-// Save the opnned annotations as a json file. As an option, it can also be saved as a
+// Save the open annotations as a json file. As an option, it can also be saved as a
 // GeoJson file. 
 
 // the Output Path has to be set

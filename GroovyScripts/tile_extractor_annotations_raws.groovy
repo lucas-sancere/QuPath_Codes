@@ -1,6 +1,6 @@
 
 
-// **TILE_EXTRACTOR**
+// **TILE_EXTRACTOR_ANNOTATIONS_RAWS**
 
 // Generate tiles of the WSI raw files in .jpg format and of the annotations (white or black background to choose) in .png format 
 
@@ -47,8 +47,8 @@ def labelServer = new LabeledImageServer.Builder(imageData)
 //    .addLabel('Dead',4)
 //    .addLabel('Inflammatory',5)
     .addLabel('Granulocyte', 1) 
-    .addLabel('Immune cells', 2) 
-    .addLabel('Plasma Cells', 3) 
+    .addLabel('Lymphocyte', 2) 
+    .addLabel('Plasme', 3) 
     .addLabel('Tumor', 4) 
     .addLabel('Stroma', 5) 
     
@@ -59,7 +59,7 @@ def labelServer = new LabeledImageServer.Builder(imageData)
 new TileExporter(imageData)
     .downsample(downsample)     // Define export resolution
     .imageExtension('.jpg')     // Define file extension for original pixels (often .tif, .jpg, '.png' or '.ome.tif')
-    .tileSize(39360, 19584)   // Define size of each tile, in pixels 
+    .tileSize(1024, 1024)   // Define size of each tile, in pixels 
 //    .tileSize(server.Width, server.Height)   //When generating only one annotation image  
     .labeledServer(labelServer) // Define the labeled image server to use (i.e. the one we just built)
     .annotatedTilesOnly(true)  // If true, only export tiles if there is a (labeled) annotation present

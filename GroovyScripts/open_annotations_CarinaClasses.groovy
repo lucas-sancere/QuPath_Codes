@@ -1,11 +1,13 @@
 
 
-// **OPEN_ANNOTATION_PANNUKECLASSES**
+// **OPEN_ANNOTATION_CARINACLASSES**
 
-// Open json annotation filled with PANNUKE cell classes on the wsi file. 
+// Open json annotation filled with CARINA (DLBCL) cell classes on the wsi file. 
 
 // To use this script you must have a .json file with exact same path as the image, but with .json extension instead
 // In // setting colors sections, one has to change the name of classes with the classes athat are described in the json file
+
+// From Carina codes
 
 
 import com.google.gson.Gson
