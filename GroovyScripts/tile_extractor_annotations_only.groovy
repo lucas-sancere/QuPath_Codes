@@ -11,6 +11,7 @@
 // One can define the downsampling of the tiles with "double downsample =" and also the size of the tiles with ".tileSize() " 
 
 print'Was tileSize changed accordingly?'
+print'Are the extracted labels correct?'
 // Just message to the user not to forget to change tileSize (to delete in general use)
 
 import qupath.lib.images.servers.LabeledImageServer
@@ -49,8 +50,8 @@ def labelServer = new LabeledImageServer.Builder(imageData)
 //    .addLabel('Dead',4)
 //    .addLabel('Inflammatory',5)
     .addLabel('Granulocyte', 1) 
-    .addLabel('Lymphocyte', 2) 
-    .addLabel('Plasme', 3) 
+    .addLabel('Immune cells', 2) 
+    .addLabel('Plasma Cells', 3) 
     .addLabel('Tumor', 4) 
     .addLabel('Stroma', 5) 
     
@@ -61,8 +62,8 @@ def labelServer = new LabeledImageServer.Builder(imageData)
 new TileExporter(imageData)
     .downsample(downsample)     // Define export resolution
     .imageExtension('.txt')     // Hugly method so far, create a txt file from raw image for it not to be generated
-    .tileSize(1024, 1024)   // Define size of each tile, in pixels 
-//    .tileSize(server.Width, server.Height)   //When generating only one annotation image  
+    .tileSize(34560, 18432)   // Define size of each tile, in pixels 
+ //   .tileSize(server.Width, server.Height)   //When generating only one annotation image  
     .labeledServer(labelServer) // Define the labeled image server to use (i.e. the one we just built)
     .annotatedTilesOnly(true)  // If true, only export tiles if there is a (labeled) annotation present
     .overlap(0)                // Define overlap, in pixel units at the export resolution

@@ -43,8 +43,8 @@ def labelServer = new LabeledImageServer.Builder(imageData)
   .backgroundLabel(0, ColorTools.BLACK) // Specify background label (usually 0 or 255)
 //  .downsample(downsample)    // Choose server resolution; this should match the resolution at which tiles are exported
   .addLabel('Granulocyte', 1)
-  .addLabel('Lymphocyte', 2)
-  .addLabel('Plasme', 3)
+  .addLabel('Immune cells', 2)
+  .addLabel('Plasma Cells', 3)
   .addLabel('Stroma', 4)
   .addLabel('Tumor', 5)
   .multichannelOutput(false) // If true, each label refers to the channel of a multichannel binary image (required for multiclass probability)
@@ -52,3 +52,5 @@ def labelServer = new LabeledImageServer.Builder(imageData)
 
 // Write the image
 writeImage(labelServer, pathOutput)
+
+print'Done'
