@@ -13,7 +13,7 @@ def imageData = getCurrentImageData()
 def name = GeneralTools.getNameWithoutExtension(imageData.getServer().getMetadata().getName())
 
 def annotations = getAnnotationObjects()
-def Outputpath = buildFilePath('/home/lsancere/These/CMMC/Local_DATA/HoverNet_DATA/TrainingData/Carina/Exportedjson/',  name  +'.json' )
+def Outputpath = buildFilePath('/home/lsancere/These/CMMC/Ada_Mount/lsancere/Data_General/TrainingSets/Segmenter_cancer_annotation/TrainingSet184/',  name  +'.json' )
 
 
 // TO create GeoJson without the 'FEATURE_COLLECTION' parameter to outputs a simple JSON object/array

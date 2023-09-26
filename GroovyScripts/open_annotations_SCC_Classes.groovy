@@ -62,9 +62,11 @@ str = getPathClass('Stroma')
 str.setColor(Color.MAGENTA.getRGB())
 tum = getPathClass('Tumor')
 tum.setColor(Color.RED.getRGB())
+epi = getPathClass('Epithelial')
+epi.setColor(Color.ORANGE.getRGB())
 
 
-cls_array = [bg, gra, lym, pla, str, tum]
+cls_array = [bg, gra, lym, pla, str, tum, epi]
 
 // reading .json
 img_dir = getCurrentServerPath().split('file:')[1].tokenize("[")[0]

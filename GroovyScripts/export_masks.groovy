@@ -15,7 +15,10 @@ def imageData = getCurrentImageData()
 def name = GeneralTools.getNameWithoutExtension(imageData.getServer().getMetadata().getName())
 
 //  -- > If output path is ABSOLUTE
-def pathOutput = buildFilePath('/home/lsancere/These/CMMC/Local_DATA/SCC/ProcessedData/ExportMasks/', name)
+// def pathOutput = buildFilePath('/path/to/define/', name)
+def pathOutput = buildFilePath(
+'/home/lsancere/These/CMMC/Ada_Mount/lsancere/Data_General/TrainingSets/Segmenter_cancer_annotation/TrainingSet184/TumorMasks_Original_Down32/', 
+name)
 
 //  -- > If Output path is linked to Project dir (RELATIVE)
 // def pathOutput = buildFilePath(PROJECT_BASE_DIR, 'ExportMasks', name) 
@@ -35,13 +38,13 @@ def labelServer = new LabeledImageServer.Builder(imageData)
   .downsample(downsample)    // Choose server resolution; this should match the resolution at which tiles are exported
   .useUniqueLabels()         // Assign labels based on instances, not classifications
   .multichannelOutput(false) // If true, each label refers to the channel of a multichannel binary image (required for multiclass probability)
-  .useFilter({p -> p.getPathClass() == getPathClass('Stroma')}) // Accept only objects classified as 'Gland'
+  .useFilter({p -> p.getPathClass() == getPathClass('tumor-region')}) 
   .build()
 
 
 // Export each 
 
-def outputPath = buildFilePath(pathOutput, 'StromaPatch_' + name + '.png')
+def outputPath = buildFilePath(pathOutput, 'TumorRegion_' + name + '.png')
     writeImage(labelServer, outputPath)
 
 
