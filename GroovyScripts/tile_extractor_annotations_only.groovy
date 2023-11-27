@@ -4,7 +4,7 @@
 
 // **TILE_EXTRACTOR_ANNOTATIONS_ONLY**
 
-// Generate tiles of the WSI raw files in .jpg format and of the annotations (white or black background to choose) in .png format 
+// Generate tiles of the annotations (white or black background to choose) in .png format 
 
 // To use this script you must have a WSI file open with annotations
 // One must set the output path here "def pathOutput = buildFilePath" and add the corresponding labels names on the "add.label" lines
