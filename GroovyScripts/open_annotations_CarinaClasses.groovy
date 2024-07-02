@@ -50,16 +50,20 @@ void createTileCache() {
 
 // ***** plotting annotations ******
 
+blackbluecolor = getColorRGB(0, 0, 139)
+
+
 // setting colors
 bg = getPathClass('Background')
 gra = getPathClass('Granulocyte')
-gra.setColor(Color.BLUE.getRGB())
+gra.setColor(Color.YELLOW.getRGB())
 lym = getPathClass('Lymphocyte')
 lym.setColor(Color.GREEN.getRGB())
 pla = getPathClass('Plasma')
 pla.setColor(Color.CYAN.getRGB())
 str = getPathClass('Stroma')
-str.setColor(Color.MAGENTA.getRGB())
+// str.setColor(blackbluecolor)
+str.setColor(Color.BLUE.getRGB())
 tum = getPathClass('Tumor')
 tum.setColor(Color.RED.getRGB())
 
