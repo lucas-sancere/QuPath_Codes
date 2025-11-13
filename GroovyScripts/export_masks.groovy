@@ -17,7 +17,7 @@ def name = GeneralTools.getNameWithoutExtension(imageData.getServer().getMetadat
 //  -- > If output path is ABSOLUTE
 // def pathOutput = buildFilePath('/path/to/define/', name)
 def pathOutput = buildFilePath(
-'/home/lsancere/These/CMMC/Ada_Mount/lsancere/Data_General/TrainingSets/Segmenter_cancer_annotation/TrainingSet184/TumorMasks_Original_Down32/', 
+'/Users/lsancere/Desktop/', 
 name)
 
 //  -- > If Output path is linked to Project dir (RELATIVE)
