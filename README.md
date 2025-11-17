@@ -5,7 +5,7 @@
 Collection of some groovy scripts for QuPath. Public repo but made mostly **for personal use**. Free tu use <br>
 Each groovy file should be described in comments in the first lines. 
 
-## Ressources
+## Resources
 
 ### QuPath on Git Hub
 
